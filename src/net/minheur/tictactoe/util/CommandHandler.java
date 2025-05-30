@@ -2,6 +2,7 @@ package net.minheur.tictactoe.util;
 
 import net.minheur.tictactoe.Main;
 import net.minheur.tictactoe.grid.CaseState;
+import net.minheur.tictactoe.grid.GridWinFinder;
 
 import java.util.List;
 import java.util.Scanner;
@@ -28,6 +29,7 @@ public class CommandHandler {
                     Main.myGrid.setCaseState(Integer.parseInt(args[1]), Main.myGrid.getPlayerToPlay());
                     Main.myGrid.switchPlayerToPlay();
                     GridFunctions.printSmallGrid(Main.myGrid);
+                    GridWinFinder.smallGridFinder(Main.myGrid);
                 } else {
                     System.out.println("This case is already full !");
                 }
