@@ -25,10 +25,21 @@ public class CommandHandler {
             case PRINT_GRID -> GridFunctions.printSmallGrid(Main.myGrid);
             case PLAY -> {
                 if (Main.myGrid.getCaseState(Integer.parseInt(args[1])) == CaseState.EMPTY) {
-                    Main.myGrid.setCaseState(Integer.parseInt(args[1]),
-                            GridFunctions.translateGridStateToState(args[2]));
+                    Main.myGrid.setCaseState(Integer.parseInt(args[1]), Main.myGrid.getPlayerToPlay());
+                    Main.myGrid.switchPlayerToPlay();
+                    GridFunctions.printSmallGrid(Main.myGrid);
                 } else {
                     System.out.println("This case is already full !");
+                }
+            }
+            case RESET_GRID -> {
+                Main.myGrid.resetGrid();
+                System.out.println("Grid reseted.");
+            }
+            case HELP -> {
+                System.out.println("Here is the List :");
+                for (Commands commands : Commands.values()) {
+                    System.out.println("- " +commands.getCommandId() + " : " + commands.getDescription());
                 }
             }
             default -> System.out.println("An error append.");

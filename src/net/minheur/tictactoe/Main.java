@@ -19,10 +19,7 @@ public class Main {
 
         System.out.println("Hello ! The game is setting up...");
         Scanner scanner = new Scanner(System.in);
-
-
-        myGrid.setCaseState(5, CaseState.RED);
-        myGrid.setCaseState(3, CaseState.BLUE);
+        System.out.println("Hello ! Red is 'o', blue is 'x'.");
 
         GridFunctions.printSmallGrid(myGrid);
 
@@ -32,5 +29,6 @@ public class Main {
             CommandHandler.handleCommand(consoleInput);
         }
         scanner.close();
+        System.out.println("Game closed.");
     }
 }
