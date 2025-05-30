@@ -1,5 +1,8 @@
 package net.minheur.tictactoe.grid;
 
+import net.minheur.tictactoe.Main;
+import net.minheur.tictactoe.util.GridFunctions;
+
 public class GridWinFinder {
     public static void smallGridFinder(GridItem grid) {
         boolean[] redOwned = {
@@ -32,7 +35,9 @@ public class GridWinFinder {
                 (redOwned[0] && redOwned[4] && redOwned[7]) ||
                 (redOwned[2] && redOwned[4] && redOwned[6])
         ) {
+            System.out.println("|------------------------|");
             System.out.println("Red won !! (o)");
+            System.out.println("|------------------------|");
         }
         // blue
         if (
@@ -48,7 +53,11 @@ public class GridWinFinder {
                 (blueOwned[0] && blueOwned[4] && redOwned[7]) ||
                 (blueOwned[2] && blueOwned[4] && redOwned[6])
         ) {
-            System.out.println("Red won !! (o)");
+            System.out.println("|------------------------|");
+            System.out.println("Blue won !! (o)");
+            System.out.println("|------------------------|");
+            Main.myGrid.resetGrid();
+            GridFunctions.printSmallGrid(Main.myGrid);
         }
     }
 }
